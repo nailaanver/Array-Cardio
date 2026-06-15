@@ -7,7 +7,25 @@ const inventors = [
 ];
 
 const fifteen = inventors.filter(
-    inventor => inventor.year >= 1500 && inventor.year < 1600
+    inventor => inventor.year >= 1600 && inventor.year < 1700
 );
 
 console.log(fifteen);
+
+const fullNames = inventors.map(
+    inventor => `${inventor.first} ${inventor.last}`
+)
+
+const ordered = inventors.sort(
+    (a,b) => a.year - b.year
+);
+console.log(ordered)
+
+const oldest = inventors.sort((a,b) => {
+    const lastGuy = a.passed - a.year;
+    const nextGuy = b.passed - b.year;
+
+    return nextGuy - lastGuy;
+});
+
+console.log(oldest);
